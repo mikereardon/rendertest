@@ -1,0 +1,10 @@
+<div class="list-group-item list-group-item-action w-50" id="<%= dom_id rfq %>">
+    Quote request <%= rfq.id %>
+    created on:  <%= rfq.created_at.strftime("%d/%m/%y @ %I:%M %P") %> 
+    <%= button_to "View",
+                    rfq_path(rfq),
+                    method: :get,
+                    class: "btn btn-primary" %>
+</div>
+
+

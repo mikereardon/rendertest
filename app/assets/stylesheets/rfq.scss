@@ -1,0 +1,70 @@
+// app/assets/stylesheets/rfq.scss
+
+// A4 size in pixels (assuming 96 DPI)
+$a4-width-px: 793px;  // 210mm
+$a4-height-px: 1122px; // 297mm
+
+.a4-container {
+  // Default styles for larger screens
+  width: $a4-width-px;
+  min-height: $a4-height-px;
+  padding: 76px; // 20mm
+  margin: 38px auto; // 10mm
+  background: white;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.1);
+  position: relative;
+  
+  // Make container responsive
+  @media (max-width: $a4-width-px + 100px) {
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+  }
+  
+  // Further adjustments for mobile
+  @media (max-width: 576px) {
+    padding: 20px;
+    margin: 0;
+    box-shadow: none;
+    min-height: auto;
+  }
+  
+  // Scale font sizes responsively
+  @media (max-width: 768px) {
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.25rem; }
+    h3 { font-size: 1.1rem; }
+    
+    table {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Adjust the sidebar and main content layout
+@media (max-width: 767.98px) {
+  .sidebar {
+    position: static;
+    height: auto;
+  }
+  
+  .ms-sm-auto {
+    margin-left: 0 !important;
+  }
+  
+  // Remove background color on mobile
+  .bg-light {
+    background-color: transparent !important;
+  }
+}
+
+// Print styles remain the same
+@media print {
+  .a4-container {
+    width: 210mm;
+    height: 297mm;
+    padding: 20mm;
+    margin: 0;
+    box-shadow: none;
+  }
+}

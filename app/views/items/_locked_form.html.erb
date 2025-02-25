@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "item_#{form.index}" do %>
+    <%= form.hidden_field :id %>
+
+    <div>
+        <%= form.label :description, style: "display: inline" %>
+        <%= form.text_field :description, disabled: :disabled %>
+        <%= form.label :quantity, style: "display: inline" %>
+        <%= form.number_field :quantity, min: 1, value: 1, disabled: :disabled%>
+    </div>
+
+<br>
+    
+<% end %>

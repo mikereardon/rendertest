@@ -1,0 +1,8 @@
+<%= fields model: @rfq do |form| %>
+  <%= form.fields_for :items, child_index: params[:index] do |item_form| %>
+    <%= turbo_frame_tag "item_#{item_form.index}" do %>
+      <%= item_form.hidden_field :id, value: params[:id] %>
+      <%= item_form.hidden_field :_destroy, value: true %>
+    <% end %>
+  <% end %>
+<% end %>

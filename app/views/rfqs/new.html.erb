@@ -1,0 +1,18 @@
+<% content_for :title, "New Quote Request" %>
+
+
+<div class="container-fluid">
+  <div class=" min-vh-100 d-flex justify-content-center py-4">
+    <div class="a4-container">
+      <h3>New Quote Request</h3>
+
+      <%= render "form", rfq: @rfq %>
+
+      <br>
+
+      <div>
+        <%= link_to "Back to all quote requests", rfqs_path %>
+      </div>
+    </div>
+  </div>
+</div>

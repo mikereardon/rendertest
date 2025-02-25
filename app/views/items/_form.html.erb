@@ -1,0 +1,19 @@
+<%= turbo_frame_tag "item_#{form.index}" do %>
+    <%= form.hidden_field :id %>
+
+    <div>
+        <%= form.label :description, style: "display: inline" %>
+        <%= form.text_field :description %>
+        <%= form.label :quantity, style: "display: inline" %>
+        <%= form.number_field :quantity, min: 1, value: 1%>
+    </div>
+
+<br>
+    <%= form.submit "Remove item",
+        formaction: item_path(form.index, form.object.id),
+        formmethod: :delete,
+        formnovalidate: true,
+        data: { turbo_frame: "item_#{form.index}" } %>
+        <br>
+    <hr>
+<% end %>

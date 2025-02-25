@@ -1,0 +1,15 @@
+<%= fields model: @rfq do |form| %>
+  <%= form.fields_for :items, child_index: params[:index] do |item_form| %>
+    <%= turbo_stream.replace "add-item" do %>
+      <%= form.submit "Add item", 
+            formaction: item_path(item_form.index.to_i + 1), 
+            formmethod: :post, 
+            formnovalidate: true, 
+            id: "add-item" %>
+    <% end %>
+
+    <%= turbo_stream.append "items" do %>
+      <%= render "form", form: item_form %>
+    <% end %>
+  <% end %>
+<% end %>

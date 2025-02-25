@@ -1,0 +1,34 @@
+<%= form_with(model: rfq) do |form| %>
+  <% if rfq.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(rfq.errors.count, "error") %> prohibited this rfq from being saved:</h2>
+
+      <ul>
+        <% rfq.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<hr>
+  <h4>Items</h4>
+  <div id="items" >
+    <%= form.fields_for :items do |item_form| %>
+      <%= render "items/form", form: item_form %>
+    <% end %>
+  </div>
+<br>
+  <div>
+    <%= form.submit "Add item",
+        formaction: item_path(@rfq.items.size),
+        formmethod: :post,
+        formnovalidate: true,
+        id: "add-item" %>
+  </div>
+
+<br>
+
+  <div>
+    <%= form.submit "Save Quote Request" %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<%= form_with(model: rfq) do |form| %>
+  <% if rfq.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(rfq.errors.count, "error") %> prohibited this rfq from being saved:</h2>
+
+      <ul>
+        <% rfq.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<hr>
+  <h4>Items</h4>
+  <div id="items" >
+    <%= form.fields_for :items do |item_form| %>
+      <%= render "items/locked_form", form: item_form, :disabled => true %>
+    <% end %>
+  </div>
+
+<% end %>

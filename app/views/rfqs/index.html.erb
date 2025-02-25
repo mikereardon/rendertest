@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Quote Requests" %>
+
+<h1>All Quote Requests</h1>
+
+<div class="list-group" id="rfqs">
+  <% @rfqs.each do |rfq| %>
+    <%= render rfq %>
+  <% end %>
+</div>
+
+<%= link_to "New Quote Request", new_rfq_path %>
+
