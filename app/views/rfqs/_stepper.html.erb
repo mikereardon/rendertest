@@ -1,0 +1,32 @@
+<div class="rfq-stepper">
+  <div class="progress position-relative" style="height: 3px; top: 24px; z-index: 1;">
+    <div class="progress-bar" role="progressbar" style="width: <%= progress_width(rfq) %>%;" 
+         aria-valuenow="<%= progress_value(rfq) %>" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  <div class="row">
+    <div class="col-4 text-center">
+      <div class="step <%= 'active' if rfq.draft? || rfq.sent? || rfq.locked? %>">
+        <div class="step-icon">
+          <i class="bi bi-file-earmark-text"></i>
+        </div>
+        <p class="step-title">Draft</p>
+      </div>
+    </div>
+    <div class="col-4 text-center">
+      <div class="step <%= 'active' if rfq.sent? || rfq.locked? %>">
+        <div class="step-icon">
+          <i class="bi bi-send"></i>
+        </div>
+        <p class="step-title">Sent</p>
+      </div>
+    </div>
+    <div class="col-4 text-center">
+      <div class="step <%= 'active' if rfq.locked? %>">
+        <div class="step-icon">
+          <i class="bi bi-lock"></i>
+        </div>
+        <p class="step-title">Locked</p>
+      </div>
+    </div>
+  </div>
+</div>
